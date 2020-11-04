@@ -47,6 +47,115 @@
   justify-content: flex-end;
 }
 
+.error-panel-wrapper {
+  // height: 100vh;
+  background-image: url('../img/error_background.jpg');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  .number-not-found {
+    font-size: 130px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #fff 20%, #f17b1a 40%, #f17b1a 60%, #fff 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Gill Sans', sans-serif;
+    animation: shine 2s linear infinite;
+    opacity: 0.8;
+    color: white;
+  }
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+  .title {
+    font-weight: 500;
+    color: white;
+    font-size: 40px;
+    font-family: 'VT323', monospace;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+  }
+
+  .sub-title {
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    opacity: 0.5;
+    font-size: 18px;
+    font-family: 'VT323', monospace;
+    letter-spacing: 2px;
+  }
+
+  .image-caution {
+    width: 80px;
+    height: 80px;
+    opacity: 0.6;
+  }
+
+  .error-button-group {
+    display: flex;
+  }
+
+  .error-button {
+    padding: 10px 25px;
+    margin: 25px;
+    border-radius: 999px;
+    border: 3px solid #f37123;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    text-shadow: 0 3px 5px rgba(#000, 0.25);
+    white-space: nowrap;
+    color: #fff;
+    background-color: transparent;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+
+  .error-button:hover {
+    background-color: #f37123;
+    background-position: 500% 100%;
+    color: black;
+  }
+
+  .button div {
+    color: white;
+  }
+
+  .polygon-1,
+  .polygon-2,
+  .polygon-3,
+  .polygon-4,
+  .polygon-4,
+  .polygon-5 {
+    animation: float 1s infinite ease-in-out alternate;
+  }
+  .polygon-2 {
+    animation-delay: 0.2s;
+  }
+  .polygon-3 {
+    animation-delay: 0.4s;
+  }
+  .polygon-4 {
+    animation-delay: 0.6s;
+  }
+  .polygon-5 {
+    animation-delay: 0.8s;
+  }
+
+  @keyframes float {
+    100% {
+      transform: translateY(30px);
+    }
+  }
+}
 //
 // Text
 //

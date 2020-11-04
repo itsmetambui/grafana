@@ -549,7 +549,7 @@ export function setupAngularRoutes($routeProvider: route.IRouteProvider, $locati
       },
     })
     .otherwise({
-      template: '<react-container />',
+      template: '<react-container style="height: 100%;" />',
       resolve: {
         component: () =>
           SafeDynamicImport(import(/* webpackChunkName: "ErrorPage" */ 'app/core/components/ErrorPage/ErrorPage')),

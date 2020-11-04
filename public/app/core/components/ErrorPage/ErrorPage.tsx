@@ -1,90 +1,61 @@
 import React, { PureComponent } from 'react';
-import { connect, MapStateToProps } from 'react-redux';
-import { NavModel } from '@grafana/data';
 import { config } from '@grafana/runtime';
-import { Icon } from '@grafana/ui';
-import Page from '../Page/Page';
-import { getNavModel } from 'app/core/selectors/navModel';
-import { StoreState } from 'app/types';
 
-interface ConnectedProps {
-  navModel: NavModel;
-}
-
-interface OwnProps {}
-
-type Props = ConnectedProps;
-
-export class ErrorPage extends PureComponent<Props> {
+export class ErrorPage extends PureComponent {
   render() {
-    const { navModel } = this.props;
     return (
-      <Page navModel={navModel}>
-        <Page.Contents>
-          <div className="page-container page-body">
-            <div className="panel-container error-container">
-              <div className="error-column graph-box">
-                <div className="error-row">
-                  <div className="error-column error-space-between graph-percentage">
-                    <p>100%</p>
-                    <p>80%</p>
-                    <p>60%</p>
-                    <p>40%</p>
-                    <p>20%</p>
-                    <p>0%</p>
-                  </div>
-                  <div className="error-column image-box">
-                    <img src="public/img/graph404.svg" width="100%" alt="graph" />
-                    <div className="error-row error-space-between">
-                      <p className="graph-text">Then</p>
-                      <p className="graph-text">Now</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="error-column info-box">
-                <div className="error-row current-box">
-                  <p className="current-text">current</p>
-                </div>
-                <div className="error-row" style={{ flex: 1 }}>
-                  <Icon name="minus-circle" className="error-minus" />
-                  <div className="error-column error-space-between error-full-width">
-                    <div className="error-row error-space-between">
-                      <p>Chances you are on the page you are looking for.</p>
-                      <p className="left-margin">0%</p>
-                    </div>
-                    <div>
-                      <h3>Sorry for the inconvenience</h3>
-                      <p>
-                        Please go back to your{' '}
-                        <a href={config.appSubUrl} className="error-link">
-                          home dashboard
-                        </a>{' '}
-                        and try again.
-                      </p>
-                      <p>
-                        If the error persists, seek help on the{' '}
-                        <a href="https://community.grafana.com" target="_blank" className="error-link">
-                          community site
-                        </a>
-                        .
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Page.Contents>
-      </Page>
+      <div className="error-panel-wrapper">
+        <div className="number-not-found">404</div>
+        <div className="title">PAGE NOT FOUND</div>
+        <div className="sub-title">We can't find the page you're looking for.</div>
+        <div className="sub-title">
+          You can either return to previous page, visit out homepage contact out support team.
+        </div>
+        <div className="error-button-group">
+          <a href={config.appSubUrl} className="error-button">
+            Home Dashboard
+          </a>
+          <a href="https://community.grafana.com" className="error-button">
+            Community Site
+          </a>
+        </div>
+        <svg width="380px" height="500px" viewBox="0 0 837 1045" version="1.1">
+          <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+            <path
+              d="M353,9 L626.664028,170 L626.664028,487 L353,642 L79.3359724,487 L79.3359724,170 L353,9 Z"
+              className="polygon-1"
+              stroke="#007FB2"
+              strokeWidth="6"
+            ></path>
+            <path
+              d="M78.5,529 L147,569.186414 L147,648.311216 L78.5,687 L10,648.311216 L10,569.186414 L78.5,529 Z"
+              className="polygon-2"
+              stroke="#EF4A5B"
+              strokeWidth="6"
+            ></path>
+            <path
+              d="M773,186 L827,217.538705 L827,279.636651 L773,310 L719,279.636651 L719,217.538705 L773,186 Z"
+              className="polygon-3"
+              stroke="#795D9C"
+              strokeWidth="6"
+            ></path>
+            <path
+              d="M639,529 L773,607.846761 L773,763.091627 L639,839 L505,763.091627 L505,607.846761 L639,529 Z"
+              className="polygon-4"
+              stroke="#F2773F"
+              strokeWidth="6"
+            ></path>
+            <path
+              d="M281,801 L383,861.025276 L383,979.21169 L281,1037 L179,979.21169 L179,861.025276 L281,801 Z"
+              className="polygon-5"
+              stroke="#36B455"
+              strokeWidth="6"
+            ></path>
+          </g>
+        </svg>
+      </div>
     );
   }
 }
 
-const mapStateToProps: MapStateToProps<ConnectedProps, OwnProps, StoreState> = state => {
-  return {
-    navModel: getNavModel(state.navIndex, 'not-found'),
-  };
-};
-
-export default connect(mapStateToProps)(ErrorPage);
+export default ErrorPage;
